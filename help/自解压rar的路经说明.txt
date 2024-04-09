@@ -1,0 +1,76 @@
+
+https://developer.aliyun.com/article/297801
+
+因为在 WINRAR 的帮助文件中没有对自解压路径和系统的环境变量之间作说明，所以，很多人只知道，其自解压路径可以智能定位到系统的 PROGRAM FILES 目录，而不知道它其实还可以智能定位到系统的任何地方：
+
+%SystemDrive%
+
+           操作系统所在的分区号。如   C:
+
+%SystemRoot%
+
+           操作系统根目录。如 C:\WINDOWS
+
+%windir%
+
+           操作系统根目录。如 C:\WINDOWS
+
+%ALLUSERSPROFILE%
+
+           相当于   C:\Documents and Settings\All Users
+
+%APPDATA%
+
+           相当于   C:\Documents and Settings\用户目录\Application Data
+
+%ProgramFiles%
+
+           相当于   C:\Program Files
+
+%CommonProgramFiles%
+
+           相当于   C:\Program Files\Common Files
+
+%HOMEDRIVE%
+
+           操作系统所在的分区号。如：C:
+
+%HOMEPATH%
+
+           相当于   \Documents and Settings\用户目录
+
+%USERPROFILE%
+
+           相当于   C:\Documents and Settings\用户目录
+
+有了上面这些变量值，们就好办了，几乎可以向系统的任何地方拷贝文件了。
+
+比如：
+
+字体目录       %WINDIR%\FONTS
+
+帮助目录       %WINDIR%\Help
+
+输入法目录     %WINDIR%\IME
+
+桌面     %USERPROFILE%\桌面
+
+右键菜单“发送到”     %USERPROFILE%\SendTo
+
+收藏夹     %USERPROFILE%\Favorites
+
+快速启动       %APPDATA%\Microsoft\Internet Explorer\Quick Launch
+
+「开始」菜单         %USERPROFILE%\「开始」菜单
+
+......
+
+还有：
+
+%WINDIR%\SYSTEM32\config  
+
+%ProgramFiles%\Adobe
+
+%CommonProgramFiles%\Macromedia
+
+......等等。所以，用好系统的环境变量， WINRAR 的自解压功能就如虎添翼了。

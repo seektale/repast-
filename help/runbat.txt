@@ -1,0 +1,56 @@
+@echo off
+
+ECHO 请求管理员权限运行bat,必须放在最前面执行,参数1改为0则无窗口界面
+%1 start "" mshta vbscript:CreateObject("Shell.Application").ShellExecute("%~s0","::","%~dp0","runas",1)(window.close)&&exit
+
+ECHO 这种启动方式有一个问题，图片的施放功能失效了，但如果不请求管理员权限，则在C盘下批处理又无法执行，或者运行后文件复制因无权限执行失败。
+ECHO 最后将程序安装在了C:\Users\admin\AppData\Roaming目录下，即不需要管理员权限，也实现了图片的施放功能
+
+
+
+
+
+ECHO %cd%
+ECHO %~dp0
+ECHO ################################# 命令行路经与文件路经
+
+::先从当前目录找到可用的jar文件,注意文件后辍.jar1没有被排除
+SET jarfile=%~dp0run.jar
+for %%j in (%~dp0*.jar) do (
+    echo %%j
+    SET jarfile=%%j
+)
+
+ECHO %jarfile% this file is choose
+cd %~dp0
+ECHO ################################# 当前先中的jar文件并切换到此bat文件目录
+
+REM 进入到jdk*/jre/bin目录,使用start命令可以保证cmd窗口不显示,JDK不区分大小写
+for /d %%i in (jdk*) do ( 
+    echo %%i
+    echo %%~dpi
+    echo %~dp0%%i\jre\bin\javaw.exe
+    if exist %~dp0%%i\jre\bin\javaw.exe (
+        start %~dp0%%i\jre\bin\javaw.exe -jar %jarfile%
+        exit
+    ) else (
+        echo javaw file not exist in jdk %%i
+    )
+)
+
+REM 进入到jre*/bin目录,使用start命令可以保证cmd窗口不显示,jre不区分大小写
+for /d %%i in (jre*) do ( 
+    echo %%i
+    echo %%~dpi
+    echo %~dp0%%i\bin\javaw.exe
+    if exist %~dp0%%i\bin\javaw.exe (
+        start %~dp0%%i\bin\javaw.exe -jar %jarfile%
+        exit
+    ) else (
+        echo javaw file not exist in jre %%i
+    )
+)
+
+echo not find jdk or jre directory in %~dp0
+pause
+exit
