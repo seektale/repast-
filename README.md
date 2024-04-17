@@ -3,6 +3,7 @@
 
 重置密码请将 conf/repast.properties 文件中参数设置为 RootPasswordReset=Y
 重置登陆界面二维码请将 conf/repast.properties 文件中参数设置为 apkurl=你的的文本
+
 运行环境下载地址(请解压后放在当前目录即可,也可从其它地方下载)：https://mirrors.sdwu.edu.cn/java/jre-8u202-windows-i586.tar.gz
 为什么要在32位jvm下运行：因为需兼容热敏打印机串口打印和明华卡管理，如无这两项需求，可以改64位jvm运行。
 
