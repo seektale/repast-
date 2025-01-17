@@ -1,10 +1,9 @@
-
-双击 run.bat 即可运行程序，如果缺少JDK或JRE会自动下载到当前目录下；网络中只需有一台电脑启用数据库即可。
+通用综合管理系统(餐饮)
+使用Java技术，Maria数据库编写餐饮管理系统，也可用于其它方面。
+双击 repast.exe 即可运行程序，如果缺少JDK或JRE会自动解压到当前目录下；程序自带数据库，网络中只需有一台电脑启用数据库即可。
 
 重置密码请将 conf/repast.properties 文件中参数设置为 RootPasswordReset=Y
 重置登陆界面二维码请将 conf/repast.properties 文件中参数设置为 apkurl=你的的文本
-
-运行环境下载地址(请解压后放在当前目录即可,也可从其它地方下载)：https://mirrors.sdwu.edu.cn/java/jre-8u202-windows-i586.tar.gz
 为什么要在32位jvm下运行：因为需兼容热敏打印机串口打印和明华卡管理，如无这两项需求，可以改64位jvm运行。
 
 安卓手机可以安装 help\repast.apk 版本要求Andorid7.0.0及以上，开发环境Android Studio 3.0.1
